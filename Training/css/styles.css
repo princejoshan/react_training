@@ -1,0 +1,11 @@
+body {
+    background-color: powderblue;
+    display:flexbox;
+    align-items: center;
+    text-align: center; 
+
+}
+#textFieldSize {
+    width: 300px;
+    height: 40px;
+}
