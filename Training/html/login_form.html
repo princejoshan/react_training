@@ -9,15 +9,51 @@
 </head>
 
 <body>
-    <h1>Login</h1>
-    <form action="/login_success">
-        <input type="text" name="UserName" id="textFieldSize" placeholder="UserName">
-        <br><br>
-        <input type="password" name="pwd" id="textFieldSize" placeholder="pwd">
-        <br><br>
-        <input type="submit" name="Login" value="Login">
-
-    </form>
+    <div class="form-container">
+        <div class="view1">
+           <h1 class="shadow">Html Tutorial</h1>
+        </div>
+        <div class="view2">
+            <h1>Login</h1>
+            <form id="loginForm">
+              <input type="text" id="username" placeholder="Username">
+              <div id="username_error" class="error_message"></div>
+              <input type="password" id="password" placeholder="Password" >
+              <div id="pwd_error" class="error_message"></div>
+              <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>    
+    </div>
+    <script src="/Training/js/login.js"></script>
 </body>
-
 </html>
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flexbox Layout</title>
+<style>
+  .container {
+    display: flex;
+  }
+  .view {
+    flex: 1; /* Distribute space equally */
+    padding: 20px;
+    border: 1px solid #ccc;
+    margin: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="view">View 1</div>
+    <div class="view">View 2</div>
+    <div class="view">View 3</div>
+  </div>
+</body>
+</html> -->
