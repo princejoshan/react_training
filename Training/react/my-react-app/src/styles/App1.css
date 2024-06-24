@@ -1,0 +1,48 @@
+.app-container {
+  display: flex;
+  height: 100vh;
+}
+
+/* src/SideNav.css */
+.side-nav {
+  width: 150px;
+  background-color: #f4f4f4;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+}
+
+.side-nav ul {
+    list-style-type: none;
+  padding: 0;
+}
+
+.side-nav ul li {
+  margin: 15px 0;
+}
+
+.side-nav ul li a {
+  text-decoration: none;
+  color: #333;
+}
+
+/* src/MainView.css */
+.main-view {
+  flex: 1;
+  padding: 20px;
+}
+
+.side-nav ul li a:hover {
+  background-color: #ddd;
+  color: #000;
+}
+
+.blogs {
+  padding: 20px;
+  background-color: #e0f7fa;
+  min-height: 100vh;
+}
+
+.blogs h1 {
+  margin-bottom: 20px;
+  color: #00796b;
+}
