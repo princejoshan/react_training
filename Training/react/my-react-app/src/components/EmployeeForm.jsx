@@ -2,10 +2,14 @@ import React, { useState, useContext, useEffect } from 'react';
 import { EmployeeContext } from '../context/EmployeeContext';
 import { useNavigate, useParams } from 'react-router-dom';
 import '../styles/login.css';
+import '../styles/Theme.css';
+
+import { ThemeContext } from '../context/ThemeContext'
 
 const EmployeeForm = ({}) => {
   const {employees, addEmployee, updateEmployee } = useContext(EmployeeContext);
   const [employee, setEmployee] = useState({ id: '', name: '', position: '' });
+  const { theme } = useContext(ThemeContext);
 
 
   const navigate = useNavigate();
@@ -23,6 +27,7 @@ const EmployeeForm = ({}) => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    console.log(name,value);
     setEmployee({ ...employee, [name]: value });
   };
 
@@ -43,7 +48,9 @@ const EmployeeForm = ({}) => {
 
   return (
     <div className='login-container'>
-    <div className='login-form'>
+    <div className={`login-form ${theme}`}>
+    <div className={`theme ${theme}`}>
+
     <form onSubmit={handleSubmit}>
       <h2>{id ? 'Edit Employee' : 'Add Employee'}</h2>
       <div>
@@ -56,7 +63,7 @@ const EmployeeForm = ({}) => {
         />
       </div>
       <div>
-        <label>Position </label>
+        <label>Designation </label>
         <input
           type="text"
           name="position"
@@ -68,7 +75,7 @@ const EmployeeForm = ({}) => {
     </form>
     </div>
     </div>
-
+    </div>
   );
 };
 

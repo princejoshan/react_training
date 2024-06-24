@@ -5,14 +5,18 @@ import React, { useContext } from 'react';
 // import Contact from './Contact';
 import '../styles/App1.css';
 import '../styles/EmployeeList.css';
+import '../styles/Theme.css';
 
 import { EmployeeContext } from '../context/EmployeeContext'
+import { ThemeContext } from '../context/ThemeContext'
+
 import { useNavigate } from 'react-router-dom';
+import Header from './Header';
 
 function EmployeeDirectory ({ setAuthenticated,userData })  {
   const navigate = useNavigate();
   const { employees, deleteEmployee } = useContext(EmployeeContext);
-
+  const { theme } = useContext(ThemeContext);
 
 
   const handleDelete = (id) => {
@@ -41,8 +45,8 @@ function EmployeeDirectory ({ setAuthenticated,userData })  {
   // };
 
   return (
-    <div>
-      <h2>Welcome {userData.userName}</h2>
+    <div className={`theme ${theme}`}>
+      <div><Header setAuthenticated = {setAuthenticated} userData={userData}/></div>     
       <h4>Employee List</h4>
       <table>
         <thead>
@@ -63,7 +67,7 @@ function EmployeeDirectory ({ setAuthenticated,userData })  {
                 <button className='editButton' onClick={() => handleEdit(employee.id)}>Edit</button>
                 <button className='deleteButton' onClick={() => handleDelete(employee.id)}>Delete</button>
 
-                {/* <button onClick={() => deleteEmployee(employee.id)}>Delete</button> */}
+                
               </td>
             </tr>
           ))}

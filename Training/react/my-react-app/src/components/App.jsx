@@ -4,6 +4,7 @@ import Login from './Login';
 import EmployeeDirectory from './EmployeeList';
 import { EmployeeProvider } from '../context/EmployeeContext';
 import EmployeeForm from './EmployeeForm';
+import { ThemeProvider } from '../context/ThemeContext';
 
 function App() {
   const [isLoggedIn, setAuthenticated] = useState(false);
@@ -24,7 +25,8 @@ function App() {
   });
 
   return (
-    <Router>
+    <ThemeProvider>
+<Router>
       <Routes>
         <Route 
           path="/" 
@@ -54,6 +56,9 @@ function App() {
         />
       </Routes>
     </Router>
+      </ThemeProvider>
+
+  
     
   );
 }
