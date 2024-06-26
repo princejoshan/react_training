@@ -37,6 +37,7 @@ import React from 'react';
 
 import ReactDOM from "react-dom/client";
 import App from './components/App';
+import { ThemeProvider } from "./context/ThemeContext";
 
 // import './App.css';
 // const root = ReactDOM.createRoot(
@@ -48,7 +49,7 @@ import App from './components/App';
 //     document.getElementById('root')
 //   );
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<App />);
+root.render( <ThemeProvider> <App /></ThemeProvider>);
 // root.render(<EmployeeProvider>
 //            <App />
 //         </EmployeeProvider>);

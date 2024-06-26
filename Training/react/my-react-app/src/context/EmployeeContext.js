@@ -11,6 +11,7 @@ const initialEmployees = [
 
 export const EmployeeProvider = ({ children }) => {
   const [employees, setEmployees] = useState(initialEmployees);
+  const [searchTerm, setSearchTerm] = useState('');
 
   const addEmployee = (newEmployee) => {
     setEmployees([...employees, newEmployee]);
@@ -23,6 +24,11 @@ export const EmployeeProvider = ({ children }) => {
     setEmployees(updatedEmployees);
   };
 
+  const filteredEmployees = employees.filter((employee) =>
+    employee.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+
   const deleteEmployee = (id) => {
     const updatedEmployees = employees.filter(emp => emp.id !== id);
     setEmployees(updatedEmployees);
@@ -30,7 +36,7 @@ export const EmployeeProvider = ({ children }) => {
 
 
   return (
-    <EmployeeContext.Provider value={{ employees, addEmployee, updateEmployee,deleteEmployee }}>
+    <EmployeeContext.Provider value={{ employees, addEmployee, updateEmployee,deleteEmployee,filteredEmployees,searchTerm, setSearchTerm }}>
       {children}
     </EmployeeContext.Provider>
   );
