@@ -10,13 +10,16 @@ import Login from "./Login";
 import EmployeeDirectory from "./EmployeeList";
 import { EmployeeProvider } from "../context/EmployeeContext";
 // import { EmployeeProvider } from '../context/EmployeeContextUseReduce';
+import {useSelector } from 'react-redux';
 
 import EmployeeForm from "./EmployeeForm";
 import "../styles/Theme.css";
+import Registration from "./Registration";
 
 function MainLayout() {
-  const [isLoggedIn, setAuthenticated] = useState(false);
+  // const [isLoggedIn, setAuthenticated] = useState(false);
   const [userData, setUser] = useState({ userName: "", pwd: "" });
+  const {isLoggedIn } = useSelector((state) => state.login);
 
   return (
     <Router>
@@ -27,13 +30,13 @@ function MainLayout() {
             isLoggedIn ? (
               <EmployeeProvider>
                 <EmployeeDirectory
-                  setAuthenticated={setAuthenticated}
+                  // setAuthenticated={setAuthenticated}
                   userData={userData}
                 />
               </EmployeeProvider>
             ) : (
               <Login
-                setAuthenticated={setAuthenticated}
+                // setAuthenticated={setAuthenticated}
                 userData={userData}
                 setUser={setUser}
               />
@@ -46,11 +49,12 @@ function MainLayout() {
             isLoggedIn ? (
               <EmployeeProvider>
                 <EmployeeDirectory
-                  setAuthenticated={setAuthenticated}
+                  // setAuthenticated={setAuthenticated}
                   userData={userData}
                 />
               </EmployeeProvider>
-            ) : (
+            ) 
+            : (
               <Navigate to="/" />
             )
           }
@@ -68,6 +72,14 @@ function MainLayout() {
           element={
             <EmployeeProvider>
               <EmployeeForm />
+            </EmployeeProvider>
+          }
+        />
+         <Route
+          path="Registration"
+          element={
+            <EmployeeProvider>
+              <Registration />
             </EmployeeProvider>
           }
         />

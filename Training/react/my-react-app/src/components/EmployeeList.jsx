@@ -17,6 +17,7 @@ function EmployeeDirectory({ setAuthenticated, userData }) {
   const navigate = useNavigate();
   const { deleteEmployee, filteredEmployees } = useContext(EmployeeContext);
 
+
   useEffect(() => {
     console.log(`EmployeeList renders ${filteredEmployees.length}`);
   });

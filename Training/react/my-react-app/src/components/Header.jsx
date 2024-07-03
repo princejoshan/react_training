@@ -5,17 +5,22 @@ import '../styles/Theme.css';
 import { ThemeContext } from '../context/ThemeContext'
 // import { EmployeeContext } from '../context/EmployeeContextUseReduce';
 import { EmployeeContext } from '../context/EmployeeContext';
+import { logout } from '../reducer/loginReducer';
+import { useDispatch,useSelector } from 'react-redux';
 
 const Header = ({ setAuthenticated,userData }) => {
     const { theme, toggleTheme } = useContext(ThemeContext);
     const { searchTerm, setSearchTerm } = useContext(EmployeeContext);
+    const dispatch = useDispatch();
+    const currentUser = useSelector((state) => state.login.currentUser);
 
     useEffect(() => {
       console.log(`Header renders`);
     });
   
     const handleLogout = () => {
-      setAuthenticated(false);
+      dispatch(logout());
+      // setAuthenticated(false);
     };
 
 
@@ -26,7 +31,7 @@ const Header = ({ setAuthenticated,userData }) => {
     return (
       // <header className={`theme ${theme}`}>
         <div className="header-content">
-          <div className="logo"><h2>Welcome {userData.userName}</h2></div>
+          <div className="logo"><h2>Welcome {currentUser.username}</h2></div>
           <div className="header-controls">
           <div>
       <input

@@ -9,7 +9,7 @@
 // import Contact from "./pages/Contact";
 // import NoPage from "./pages/NoPage";
 // import Login from "./components/Login";
-// import 
+// import
 
 // const myFirstElement = <h1>Hello React!</h1>
 // const myArray = ['apple', 'banana', 'orange'];
@@ -33,10 +33,11 @@
 //       </BrowserRouter>
 //     );
 //   }
-import React from 'react';
+import React from "react";
 
 import ReactDOM from "react-dom/client";
-import App from './components/App';
+import App from "./components/App";
+import { EmployeeProvider } from "./context/EmployeeContext";
 import { ThemeProvider } from "./context/ThemeContext";
 
 // import './App.css';
@@ -48,8 +49,25 @@ import { ThemeProvider } from "./context/ThemeContext";
 //     </React.StrictMode>,
 //     document.getElementById('root')
 //   );
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render( <ThemeProvider> <App /></ThemeProvider>);
-// root.render(<EmployeeProvider>
-//            <App />
-//         </EmployeeProvider>);
+
+// import React from 'react';
+// import ReactDOM from 'react-dom';
+import { Provider, useDispatch, useSelector } from 'react-redux';
+import store from './store/redux_store';
+// import  TodoApp from './components/Todo';
+// import { addTodo, toggleTodo } from './reducer/todo_reducer';
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+// root.render( <ThemeProvider> <App /></ThemeProvider>);
+// root.render( <Provider store={store}>
+//     <TodoApp />
+//   </Provider>
+// );
+
+root.render(
+  <ThemeProvider>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </ThemeProvider>
+);
